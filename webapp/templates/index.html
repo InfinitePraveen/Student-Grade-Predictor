@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Student Grade Predictor</title>
+    <link rel="stylesheet" href="/static/css/style.css" />
+</head>
+
+<body>
+    <main class="container">
+        <h1 class="logo">Student Grade Predictor</h1>
+
+        <section class="uploader">
+            <label class="dropzone" id="dropzone">
+                <input id="file" type="file" accept=".csv" hidden />
+                <div class="drop-content">
+                    <svg class="cloud" viewBox="0 0 24 24">
+                        <path d="M19 18H6a4 4 0 010-8 5 5 0 019.9-1.7A3.5 3.5 0 0119 18z" />
+                    </svg>
+                    <p>Drop a CSV or click to upload</p>
+                    <small>Use the `student-mat.csv` or a single-row CSV of features</small>
+                </div>
+            </label>
+            <button id="predictBtn" class="btn">Predict</button>
+        </section>
+
+        <section id="result" class="result hidden">
+            <div class="card">
+                <div class="pulse" id="pulse"></div>
+                <h2>Predicted Final Grade</h2>
+                <div id="score" class="score">—</div>
+                <p id="note" class="note">Upload a CSV to get predictions.</p>
+            </div>
+        </section>
+    </main>
+
+    <script src="/static/js/app.js"></script>
+</body>
+
+</html>
