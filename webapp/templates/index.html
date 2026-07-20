@@ -9,79 +9,90 @@
 </head>
 
 <body>
-    <main class="container">
-        <h1 class="logo">Student Grade Predictor</h1>
+    <main class="page-shell">
+        <section class="hero-panel">
+            <div class="hero-copy">
+                <p class="eyebrow">Student Analytics</p>
+                <h1>Predict final grades with a premium dashboard experience</h1>
+                <p class="hero-subtitle">A polished student prediction app with modern cards, smooth animations, and a
+                    clean input workflow.</p>
+                <div class="hero-actions">
+                    <button class="btn">Start Predicting</button>
+                    <button class="btn secondary">How it works</button>
+                </div>
+            </div>
+            <div class="hero-cards">
+                <article class="metric-card glow">
+                    <span class="metric-label">Live mode</span>
+                    <strong>Demo Ready</strong>
+                    <p class="metric-note">Perfect for interviews and presentations.</p>
+                </article>
+                <article class="metric-card">
+                    <span class="metric-label">Model</span>
+                    <strong>Random Forest</strong>
+                    <p class="metric-note">Trained on student performance data.</p>
+                </article>
+                <article class="metric-card">
+                    <span class="metric-label">Forecast</span>
+                    <strong>Final Grade</strong>
+                    <p class="metric-note">Instantly displayed for each student.</p>
+                </article>
+            </div>
+        </section>
 
-        <div class="grid">
+        <section class="grid">
             <section class="panel form-panel">
-                <h2>Enter Student Details</h2>
-                <p class="muted">Fill the fields below — you can preview and edit before predicting.</p>
-                <form id="studentForm">
-                    <div class="row">
-                        <label>Age<input name="age" type="number" min="10" max="100" value="18" /></label>
-                        <label>Sex
-                            <select name="sex">
-                                <option value="F">F</option>
-                                <option value="M">M</option>
-                            </select>
-                        </label>
+                <div class="panel-header">
+                    <div>
+                        <p class="eyebrow">Student Profile</p>
+                        <h2>Fill in student details</h2>
                     </div>
-
-                    <div class="row">
-                        <label>Study time
-                            <select name="studytime">
+                    <span class="tag">Realtime</span>
+                </div>
+                <p class="muted">Enter student information and generate a grade forecast with one click.</p>
+                <form id="studentForm">
+                    <div class="input-grid">
+                        <label>Age<input name="age" type="number" min="10" max="100" value="18" /></label>
+                        <label>Sex<select name="sex">
+                                <option value="F">Female</option>
+                                <option value="M">Male</option>
+                            </select></label>
+                        <label>G1<input name="G1" type="number" min="0" max="20" value="10" /></label>
+                        <label>G2<input name="G2" type="number" min="0" max="20" value="11" /></label>
+                        <label>Study time<select name="studytime">
                                 <option value="1">&lt;2 hrs</option>
                                 <option value="2">2-5 hrs</option>
                                 <option value="3">5-10 hrs</option>
                                 <option value="4">&gt;10 hrs</option>
-                            </select>
-                        </label>
+                            </select></label>
                         <label>Failures<input name="failures" type="number" min="0" max="10" value="0" /></label>
-                    </div>
-
-                    <div class="row">
-                        <label>Family relationship <input name="famrel" type="number" min="1" max="5"
-                                value="4" /></label>
-                        <label>Free time <input name="freetime" type="number" min="1" max="5" value="3" /></label>
-                    </div>
-
-                    <div class="row">
-                        <label>Going out <input name="goout" type="number" min="1" max="5" value="3" /></label>
-                        <label>Health <input name="health" type="number" min="1" max="5" value="3" /></label>
-                    </div>
-
-                    <div class="row">
-                        <label>Absences <input name="absences" type="number" min="0" max="100" value="4" /></label>
-                        <label>G1 <input name="G1" type="number" min="0" max="20" value="10" /></label>
-                    </div>
-
-                    <div class="row">
-                        <label>G2 <input name="G2" type="number" min="0" max="20" value="11" /></label>
-                        <label>Traveltime
-                            <select name="traveltime">
+                        <label>Absences<input name="absences" type="number" min="0" max="100" value="4" /></label>
+                        <label>Family rel.<input name="famrel" type="number" min="1" max="5" value="4" /></label>
+                        <label>Free time<input name="freetime" type="number" min="1" max="5" value="3" /></label>
+                        <label>Go out<input name="goout" type="number" min="1" max="5" value="3" /></label>
+                        <label>Health<input name="health" type="number" min="1" max="5" value="3" /></label>
+                        <label>Travel time<select name="traveltime">
                                 <option value="1">&lt;15</option>
                                 <option value="2">15-30</option>
                                 <option value="3">30-60</option>
                                 <option value="4">&gt;60</option>
-                            </select>
-                        </label>
+                            </select></label>
                     </div>
 
                     <div class="row switches">
                         <label><input type="checkbox" name="activities" /> Activities</label>
                         <label><input type="checkbox" name="paid" /> Paid classes</label>
-                        <label><input type="checkbox" name="higher" checked /> Wants higher</label>
-                        <label><input type="checkbox" name="internet" checked /> Internet</label>
+                        <label><input type="checkbox" name="higher" checked /> Higher education</label>
+                        <label><input type="checkbox" name="internet" checked /> Internet access</label>
                     </div>
 
                     <div class="actions">
-                        <button id="formPredict" class="btn">Predict Student</button>
+                        <button id="formPredict" type="button" class="btn">Predict Student</button>
                         <button id="formReset" type="button" class="btn secondary">Reset</button>
                     </div>
                 </form>
 
-                <div class="or-line"><span>or</span></div>
-
+                <div class="or-line"><span>or upload a sample CSV</span></div>
                 <div class="uploader compact">
                     <label class="dropzone small" id="dropzone">
                         <input id="file" type="file" accept=".csv" hidden />
@@ -92,44 +103,47 @@
                             <p>Upload CSV</p>
                         </div>
                     </label>
-                    <button id="predictBtn" class="btn">Predict CSV</button>
+                    <button id="predictBtn" type="button" class="btn">Predict CSV</button>
                 </div>
             </section>
 
             <aside class="panel result-panel">
-                <div class="avatar-wrap">
-                    <svg class="avatar" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
-                        <defs>
-                            <linearGradient id="g" x1="0" x2="1">
-                                <stop offset="0" stop-color="#7c3aed" />
-                                <stop offset="1" stop-color="#22d3ee" />
-                            </linearGradient>
-                        </defs>
-                        <circle cx="60" cy="60" r="40" fill="url(#g)" opacity="0.14" />
-                        <g transform="translate(30,30)">
-                            <circle cx="30" cy="20" r="14" fill="#fff" opacity="0.9" />
-                            <rect x="6" y="48" width="48" height="20" rx="8" fill="#fff" opacity="0.9" />
-                        </g>
-                    </svg>
+                <div class="result-header">
+                    <div>
+                        <p class="eyebrow">Prediction insight</p>
+                        <h2>Grade forecast</h2>
+                    </div>
+                    <div class="status-pill">Ready</div>
                 </div>
-
-                <div class="card result-card">
-                    <h3>Predicted Final Grade</h3>
+                <div class="result-card">
+                    <div class="result-top">
+                        <div>
+                            <span class="result-label">Final Grade</span>
+                            <strong id="gradeValue" class="result-score">—</strong>
+                        </div>
+                        <div class="sparkline">
+                            <span></span><span></span><span></span><span></span><span></span>
+                        </div>
+                    </div>
                     <div class="gauge">
                         <svg viewBox="0 0 120 120">
+                            <defs>
+                                <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="#7c3aed" />
+                                    <stop offset="100%" stop-color="#22d3ee" />
+                                </linearGradient>
+                            </defs>
                             <circle class="g-bg" cx="60" cy="60" r="50" />
-                            <circle class="g-fg" cx="60" cy="60" r="50" stroke-dasharray="314"
+                            <circle class="g-fg" cx="60" cy="60" r="50" stroke="url(#g)" stroke-dasharray="314"
                                 stroke-dashoffset="314" />
                             <text x="60" y="68" text-anchor="middle" class="g-text">—</text>
                         </svg>
                     </div>
-
-                    <div class="meta">
-                        <p id="note" class="note">Fill details and click <strong>Predict Student</strong>.</p>
-                    </div>
+                    <p id="note" class="note">Fill all fields and click <strong>Predict Student</strong> to get the
+                        forecast.</p>
                 </div>
             </aside>
-        </div>
+        </section>
     </main>
 
     <script src="/static/js/app.js"></script>
