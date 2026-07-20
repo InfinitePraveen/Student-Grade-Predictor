@@ -23,7 +23,23 @@
                     <small>Use the `student-mat.csv` or a single-row CSV of features</small>
                 </div>
             </label>
-            <button id="predictBtn" class="btn">Predict</button>
+            <div style="display:flex;flex-direction:column;gap:8px">
+                <button id="predictBtn" class="btn">Predict CSV</button>
+                <button id="toggleManual" class="btn"
+                    style="background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted);">Manual
+                    Input</button>
+            </div>
+        </section>
+
+        <section id="manual" class="uploader hidden" style="flex-direction:column;align-items:center;gap:12px">
+            <label style="width:100%;max-width:680px;text-align:left;color:var(--muted)">Enter JSON (single sample or
+                array of samples):</label>
+            <textarea id="manualInput" placeholder='{"age":18, "sex":"F", "studytime":2, "G1":12, "G2":13}'
+                style="width:100%;max-width:680px;height:140px;padding:12px;border-radius:8px;background:rgba(0,0,0,0.36);border:1px solid rgba(255,255,255,0.03);color:inherit"></textarea>
+            <div style="display:flex;gap:8px"><button id="manualPredict" class="btn">Predict</button><button
+                    id="manualClear" class="btn"
+                    style="background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted)">Clear</button>
+            </div>
         </section>
 
         <section id="result" class="result hidden">
